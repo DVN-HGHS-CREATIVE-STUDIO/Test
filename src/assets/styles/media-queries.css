@@ -1,0 +1,111 @@
+/* Extra Small Devices (iPhone SE and similar small screens, 375px) */
+@media screen and (max-width: 375px) {
+    /* Header Adjustments */
+    header {
+        height: 50px;
+        padding: 5px 10px;
+        max-width: 375px;
+    }
+
+    .name {
+        font-size: 30px;
+        transition: none;
+    }
+
+    .menu-icon {
+        height: 12px;
+    }
+
+    .menu-icon span {
+        width: 18px;
+        height: 1px;
+    }
+
+    .dropdown-menu {
+        width: 300px;
+        height: 520px;
+    }
+
+    /* Date Display */
+    .datetime-display {
+        top: -20px;
+        right: 10px;
+        position: relative;
+    }
+
+    .date-number {
+        font-size: 40px;
+    }
+
+    .month, .day-time {
+        font-size: 20px;
+    }
+
+    /* Home Page Adjustments */
+    .main-content {
+        grid-template-areas:
+            "profile"
+            "designer"
+            "welcome";
+        grid-template-columns: 1fr;
+        position: relative;
+        bottom: 20px;
+        left: 10px;
+        right: 10px;
+        padding: 0;
+        gap: 10px;
+        max-width: fit-content;
+    }
+
+    .profile-section {
+        margin-bottom: 80px;
+        max-width: fit-content;
+    }
+
+    .profile-image {
+        width: 280px;
+        height: 280px;
+        top: 50px;
+    }
+
+    .title-section {
+        text-align: center;
+    }
+
+    .designer-developer-logo {
+        max-width: 300px;
+        margin: 0 auto;
+        margin-bottom: 20px;
+    }
+
+    .welcome-message {
+        text-align: center;
+        align-items: center;
+    }
+
+    .welcome-message h2 {
+        font-size: 32px;
+        margin-bottom: 10px;
+    }
+
+    .welcome-message p {
+        font-size: 16px;
+        max-width: 320px;
+        text-align: center;
+        margin: 0 auto;
+        margin-bottom: 20px;
+    }
+
+    .contact-button {
+        font-size: 16px;
+        padding: 10px 30px;
+        margin-bottom: 20px;
+    }
+
+    /* Footer */
+    footer {
+        font-size: 9px;
+        height: 40px;
+        position: relative;
+    }
+}

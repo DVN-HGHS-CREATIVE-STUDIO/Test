@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="/Devon Hughes Portfolio/src/assets/styles/styles.css">
+    <link rel="preload" href="Agraham-Personaluse.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="Dirtyline36Daysoftype2022-Reg.woff2" as="font" type="font/woff2" crossorigin>
+</head>
+<body>
+    <header>
+        <div class="menu-container">
+            <div class="menu-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <span class="menu-text">MENU</span>
+        </div>
+        <a href="/Devon Hughes Portfolio/index.html" class="name-anchor">
+            <h1 class="name">devon hughes</h1>
+        </a>
+    </header>
+    <nav class="dropdown-menu">
+        <div class="close-button">x close</div>
+        <ul class="menu-items">
+            <li><a href="/Devon Hughes Portfolio/index.html">home</a></li>
+            <li><a href="/Devon Hughes Portfolio/src/pages/about.html">about</a></li>
+            <li><a href="/Devon Hughes Portfolio/src/pages/skills.html">skills</a></li>
+            <li><a href="/Devon Hughes Portfolio/src/pages/resume.html">resume</a></li>
+            <li><a href="/Devon Hughes Portfolio/src/pages/design.html">design</a></li>
+            <li><a href="/Devon Hughes Portfolio/src/pages/projects.html">projects</a></li>
+            <li><a href="/Devon Hughes Portfolio/src/pages/contact.html">contact</a></li>
+        </ul>
+    </nav>
+    <div class="datetime-display">
+        <div class="date-number">24</div>
+        <div class="date-details">
+            <div class="month">october</div>
+            <div class="day-time">thurs 4:06pm</div>
+        </div>
+    </div>
+    <main>
+        <h1 class="contact-title">contact.</h1>
+    
+        <div class="form-container">
+            <form action="https://formspree.io/f/xeoqndgd" method="POST" enctype="multipart/form-data">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="name" class="form-label">full name:</label>
+                        <input type="text" id="name" name="name" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone" class="form-label">phone number:</label>
+                        <input type="tel" id="phone" name="phone" class="form-input" pattern="[0-9]{10}" title="Please enter a 10-digit phone number">
+                    </div>
+                    <div class="form-group message-area">
+                        <label for="message" class="form-label">message:</label>
+                        <textarea id="message" name="message" class="form-textarea" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="form-label">email:</label>
+                        <input type="email" id="email" name="email" class="form-input" required>
+                    </div>
+                    <div class="form-group file-upload">
+                        <label for="file-upload" class="form-label">upload file: (demo only - file uploads not yet permitted)</label>
+                        <input type="file" id="file-upload" name="attachment" class="form-input-file" accept="application/pdf, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document, image/jpeg, image/png">
+                    </div>
+                </div>
+                <div class="submit-button">
+                    <button type="submit" class="submit-btn">submit</button>
+                </div>
+            </form>
+            <div class="thank-you-message" style="display: none;">
+                <h2>thank you!</h2>
+                <p>your message has been sent successfully.</p>
+            </div>
+        </div>
+
+        <a href="mailto:DVNHGHSCREATIVESTUDIO@GMAIL.COM" class="contact-email">dvnhghscreativestudio@gmail.com</a>
+
+        <div class="social-icons">
+            <a href="https://www.linkedin.com/in/devon-hughes-b51434294/" target="_blank">
+                <img src="/Devon Hughes Portfolio/src/assets/images/graphics/social icons/linkedin-icon.svg" alt="linkedin icon" class="social-icon">
+            </a>
+            <a href="https://github.com/DVN-HGHS-CREATIVE" target="_blank">
+                <img src="/Devon Hughes Portfolio/src/assets/images/graphics/social icons/github-icon.svg" alt="github icon" class="social-icon">
+            </a>
+            <a href="https://codepen.io/DVN-HGHS-CREATIVE" target="_blank">
+                <img src="/Devon Hughes Portfolio/src/assets/images/graphics/social icons/codepen-icon.svg" alt="codepen icon" class="social-icon">
+            </a>
+            <a href="https://www.instagram.com/dvnhghscreative/" target="_blank">
+                <img src="/Devon Hughes Portfolio/src/assets/images/graphics/social icons/instagram-icon.svg" alt="instagram icon" class="social-icon">
+            </a>
+            <a href="https://x.com/dvnhghscreative" target="_blank">
+                <img src="/Devon Hughes Portfolio/src/assets/images/graphics/social icons/x-icon.svg" alt="x icon" class="social-icon">  
+            </a>
+        </div>
+    </main>
+    <footer>designed and developed by dvn hghs creative studio, a division of hughessential, inc. © 2024</footer>
+<script src="/Devon Hughes Portfolio/src/scripts/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,909 @@
+/* Font Faces */
+@font-face {
+    font-family: 'Agraham';
+    src: url('Agraham-Personaluse.woff2') format('woff2'),
+        url('Agraham-Personaluse.woff') format('woff'),
+        url('Agraham-Personaluse.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Dirtyline 36Daysoftype 2022';
+    src: url('Dirtyline36Daysoftype2022-Reg.woff2') format('woff2'),
+        url('Dirtyline36Daysoftype2022-Reg.woff') format('woff'),
+        url('Dirtyline36Daysoftype2022-Reg.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Gloobal Variables */
+:root {
+    --white: #ffffff;
+    --black: #000000;
+    --gray: #888888;
+    --red: #E6393F;
+    --header-height: 80px;
+}
+
+/* Global Styles */
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    padding: 20px;
+    padding-top: calc(var(--header-height) + 20px);
+}
+
+body.menu-open {
+    overflow: hidden;
+}
+
+/* Header Styles */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 20px 1px 20px; 
+    border-bottom: 1px solid var(--black);
+    position: fixed; 
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--white);
+    z-index: 1001; 
+    height: var(--header-height);
+    transition: border-color 0.3s ease;
+}
+
+/* Menu Styles */
+.menu-container {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.menu-icon {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    height: 20px;
+    justify-content: center;
+}
+
+.menu-icon span {
+    display: block;
+    width: 25px;
+    height: 2px;
+    background-color: var(--black);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.menu-text {
+    font-family: 'Agraham', sans-serif;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    margin-top: 2.5px;
+    margin-left: 10px;
+}
+
+.dropdown-menu {
+    position: fixed;
+    top: 100px;
+    left: 25px;
+    background-color: var(--black);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 320px;
+    height: 485px;
+    transform: translateX(-150%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
+}
+
+.dropdown-menu.active {
+    transform: translateX(0);
+}
+
+.close-button {
+    color: var(--white);
+    font-size: 20px;
+    font-family: 'Dirtyline 36Daysoftype 2022', sans-serif;
+    margin-bottom: 20px;
+    margin-left: 5px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-button:hover {
+    color: var(--red);
+}
+
+.menu-items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-items li {
+    margin: 0px 0px 16px 5px;
+}
+
+.menu-items a {
+    color: var(--white);
+    text-decoration: none;
+    font-size: 40px;
+    font-family: 'Dirtyline 36Daysoftype 2022', sans-serif;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.menu-items a:hover {
+    color: var(--red);
+}
+
+.menu-items li {
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.dropdown-menu.active .menu-items li {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.menu-items li:nth-child(1) { transition-delay: 0.1s; }
+.menu-icon.active span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+.menu-items li:nth-child(2) { transition-delay: 0.2s; }
+.menu-icon.active span:nth-child(2) {
+    opacity: 0;
+}
+.menu-items li:nth-child(3) { transition-delay: 0.3s; }
+.menu-icon.active span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+.menu-items li:nth-child(4) { transition-delay: 0.4s; }
+.menu-items li:nth-child(5) { transition-delay: 0.5s; }
+.menu-items li:nth-child(6) { transition-delay: 0.6s; }
+.menu-items li:nth-child(7) { transition-delay: 0.7s; }
+
+/* Name Styles */
+.name {
+    color: var(--red);
+    font-family: 'Dirtyline 36Daysoftype 2022', sans-serif;
+    font-size: 60px;
+    font-weight: bold;
+    margin: 0;
+    transition: opacity 0.3s ease;
+}
+
+.name:hover {
+    opacity: 50%;
+}
+
+.name-anchor {
+    text-decoration: none;
+}
+
+/* Date and Time Styles */
+.datetime-display {
+    position: fixed;
+    top: calc(var(--header-height) + 20px);
+    right: 25px;
+    gap: 20px;
+    display: flex;
+    align-items: flex-start;
+    font-family: 'Dirtyline 36Daysoftype 2022', sans-serif;
+    color: var(--white);
+    background-color: var(--black);
+    border-radius: 10px;
+    padding: 20px 20px 0px 20px;
+}
+
+.date-number {
+    font-size: 80px;
+    line-height: 1.1;
+    padding-top: 0px;
+    margin-right: -10px;
+}
+
+.date-details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.month {
+    font-size: 34px;
+}
+
+.day-time {
+    font-size: 34px;
+}
+
+/* Home Page Styles */
+.main-content {
+    display: grid;
+    grid-template-areas:
+        "profile profile"
+        "designer welcome";
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    position: fixed;
+    bottom: 80px;
+    left: 20px;
+    right: 20px;
+    padding: 0 5px;
+}
+
+.profile-section {
+    grid-area: profile;
+    display: flex;
+    justify-content: center;
+}
+
+.profile-image {
+    width: 500px;
+    height: 500px;
+    margin: 0 auto;
+    position: relative;
+    top: 150px;
+    opacity: 0;
+    transition: opacity 1s ease-out;
+}
+
+.profile-image.fade-in {
+    opacity: 1;
+}
+
+.profile-image img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    transform: scale(0.95) rotate(-5deg);
+}
+
+.profile-image img.active {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+}
+
+.title-section {
+    grid-area: designer;
+    text-align: left;
+    align-self: end;
+}
+
+.designer-developer-logo {
+    max-width: 600px;
+    transform: translateX(-100vw);
+    opacity: 0;
+    transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+}
+
+.designer-developer-logo.slide-in {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.designer-developer-logo svg {
+    width: 100%;
+    height: auto;
+}
+
+.welcome-message {
+    grid-area: welcome;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: flex-end;
+    position: relative;  
+    z-index: 1;    
+}
+
+.welcome-message h2,
+.welcome-message p {
+    position: relative;  
+    z-index: 1;        
+}
+
+.welcome-message h2 {
+    color: var(--red);
+    font-family: 'Agraham', sans-serif;
+    font-size: 44px;
+    margin-bottom: -35px;
+    transform: translateX(100vw);
+    opacity: 0;
+    transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+}
+
+.welcome-message p {
+    font-family: 'Dirtyline 36Daysoftype 2022', sans-serif;
+    font-size: 20px;
+    line-height: 1.6;
+    max-width: 500px;
+    margin-left: auto;
+    transform: translateX(100vw);
+    opacity: 0;
+    transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+}
+
+.welcome-message h2.slide-in {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.welcome-message p.slide-in {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.welcome-message a.slide-in {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.contact-button {
+    display: inline-block;
+    background-color: var(--black);
+    color: var(--white);
+    font-family: 'Dirtyline 36Daysoftype 2022', sans-serif;
+    padding: 12px 40px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 20px;
+    cursor: pointer;
+    position: relative;  
+    z-index: 2;         
+    margin-top: 10px;   
+    margin-bottom: 5px;
+    transform: translateX(100vw);
+    opacity: 0;
+    transition: 
+        transform 0.8s ease-out,
+        opacity 0.8s ease-out,
+        background-color 0.3s ease;
+}
+
+.contact-button:hover {
+    background-color: var(--red);
+    transform: translateY(-2px);
+}
+
+.contact-button:active {
+    transform: translateY(0);
+}
+
+.contact-button.slide-in {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.contact-button::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    bottom: -5px;
+    left: -5px;
+    z-index: -1;
+}
+
+/* About Page Styles */
+.about-title {
+    font-family: 'Dirtyline 36Daysoftype 2022', sans-serif;
+    font-size: 120px;
+    margin-bottom: 50px;
+    margin-left: 10px;
+    color: var(--black);
+}
+
+.about-page {
+    padding: 10px 50px 50px 50px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    margin-top: 40px;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.about-content.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.left-column {
+    padding-right: 40px;
+}
+
+.greeting {
+    font-family: 'Dirtyline 36Daysoftype 2022', sans-serif;
+    font-size: 48px;
+    margin-bottom: 30px;
+    color: var(--black);
+    text-transform: lowercase;
+}
+
+.bio-text p {
+    font-family: 'dirtyline 36daysoftype 2022', sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 24px;
+    text-transform: lowercase;
+    text-align: left;
+}
+
+.right-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-container-about {
+    width: 100%;
+    max-width: 500px;
+    margin-bottom: 20px;
+}
+
+.profile-image-about {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+}
+
+.quote {
+    font-family: 'Dirtyline 36Daysoftype 2022', sans-serif;
+    font-size: 48px;
+    text-align: center;
+    margin: 30px 0;
+    color: var(--black);
+}
+
+.mission p {
+    font-family: 'dirtyline 36daysoftype 2022', sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 24px;
+    text-align: center;
+    text-transform: lowercase;
+    text-align: left;
+}
+
+/* Skills Page Styles */
+.skills-title {
+    font-family: 'Dirtyline 36Daysoftype 2022', sans-serif;
+    font-size: 120px;
+    margin-bottom: 50px;
+    margin-left: 10px;
+    color: var(--black);
+}
+
+.skills-page {
+    padding: 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 60px;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.skill-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    position: relative;
+}
+
+.skill-icon img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+}
+
+@keyframes skillEntrance {
+    0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.8);
+    }
+    60% {
+        transform: translateY(-10px) scale(1.1);
+    }
+    80% {
+        transform: translateY(5px) scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes floatEffect {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.skill-icon.animate {
+    animation: skillEntrance 1s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+    animation-fill-mode: forwards;
+}
+
+.skill-icon.float {
+    animation: floatEffect 3s ease-in-out infinite;
+    opacity: 1;
+}
+
+.skill-icon img {
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.skill-icon:hover img {
+    transform: scale(2.2);
+}
+
+/* Resume Page Styles */
+.resume-title {
+    font-family: 'Dirtyline 36Daysoftype 2022', sans-serif;
+    font-size: 120px;
+    margin-bottom: 50px;
+    margin-left: 10px;
+    color: var(--black);
+}
+
+.resume-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 40px 100px; 
+    max-width: 100%; 
+    margin: 0 auto;
+}
+
+.resume-images {
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    gap: 40px; 
+    width: 100%;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.resume-image {
+    max-width: 45%;
+    width: auto;
+    height: auto;
+    max-height: 90vh;
+    object-fit: contain;
+    opacity: 0;
+    transform: scale(0.95);
+    transition: 
+        opacity 0.8s ease-out, 
+        transform 0.4s ease-in-out,
+        box-shadow 0.3s ease;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    cursor: zoom-in;
+}
+
+.resume-image:hover {
+    transform: scale(1.1); 
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+    z-index: 10;
+}
+
+.resume-images.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.resume-images.fade-in .resume-image {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.resume-image:nth-child(1) {
+    transition-delay: 400ms;
+}
+
+.resume-image:nth-child(2) {
+    transition-delay: 600ms;
+}
+
+/* Design Page Styles */
+.design-title {
+    font-family: 'Dirtyline 36Daysoftype 2022', sans-serif;
+    font-size: 120px;
+    margin-bottom: 50px;
+    margin-left: 10px;
+    color: var(--black);
+}
+
+/* Projects Page Styles */
+.projects-title {
+    font-family: 'Dirtyline 36Daysoftype 2022', sans-serif;
+    font-size: 120px;
+    margin-bottom: 50px;
+    margin-left: 10px;
+    color: var(--black);
+}
+
+.projects-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.project-link {
+    font-family: 'Agraham', sans-serif;
+    font-size: 30px;
+    text-transform: lowercase;
+    color: var(--black);
+    text-decoration: none;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: color 0.3s ease, transform 0.3s ease, opacity 0.8s ease-out;
+}
+
+.project-link:hover {
+    color: var(--red);
+}
+
+/* Contact Page Styles */
+.contact-title {
+    font-family: 'Dirtyline 36Daysoftype 2022', sans-serif;
+    font-size: 120px;
+    margin-bottom: 50px;
+    margin-left: 10px;
+    color: var(--black);
+}
+
+.contact-container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.form-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.message-area {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-label {
+    display: block;
+    font-family: 'Dirtyline 36Daysoftype 2022', sans-serif;
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: var(--black);
+}
+
+.form-input,
+.form-textarea {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background-color: #e0e0e0;
+    font-family: 'Dirtyline 36Daysoftype 2022', sans-serif;
+    color: var(--black);
+    font-size: 16px;
+}
+
+.form-textarea {
+    height: 145px;
+    resize: vertical;
+}
+
+.submit-button {
+    display: flex;
+    justify-content: center;
+    margin: 20px auto 0;
+}
+
+.form-input-file {
+    width: 100%;
+    padding: 5px;
+    border: 2.5px solid #e0e0e0;
+    background-color: #e0e0e0;
+    font-family: 'Dirtyline 36Daysoftype 2022', sans-serif;
+    text-transform: lowercase;
+    color: var(--black);
+    font-size: 16px;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+}
+
+.form-input-file:hover {
+    border-color: var(--red);
+}
+
+.form-input-file:focus {
+    outline: none;
+    border-color: var(--black);
+}
+
+.submit-btn {
+    background-color: var(--black);
+    color: var(--white);
+    font-family: 'Dirtyline 36Daysoftype 2022', sans-serif;
+    padding: 12px 40px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 20px;
+    cursor: pointer;
+    position: relative;      
+    margin-top: 5px;   
+    margin-bottom: 5px;
+    transition: background-color 0.3s ease;
+    border: none;
+}
+
+.submit-btn:hover {
+    background-color: var(--red);
+    border: none;
+}
+
+.contact-email {
+    display: block;
+    font-family: 'Dirtyline 36Daysoftype 2022', sans-serif;
+    font-size: 50px;
+    text-decoration: underline;
+    color: var(--black);
+    margin: 40px 0;
+    text-align: center;
+}
+
+.contact-email:hover {
+    color: var(--red);
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.social-icons a {
+    color: var(--black);
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.social-icons a:hover {
+    opacity: 50%;
+}
+
+.social-icon {
+    width: 30px;
+    height: 30px;
+}
+
+.thank-you-message {
+    text-align: center;
+    padding: 40px;
+    display: none;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.thank-you-message.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.thank-you-message h2 {
+    font-family: 'Dirtyline 36Daysoftype 2022', sans-serif;
+    font-size: 48px;
+    color: var(--red);
+    margin-bottom: 20px;
+}
+
+.thank-you-message p {
+    font-family: 'Dirtyline 36Daysoftype 2022', sans-serif;
+    font-size: 24px;
+    color: var(--black);
+}
+
+.form-group,
+.submit-button,
+.contact-email,
+.social-icons,
+.page-title {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out, color 0.3s ease;
+}
+
+.social-icons a .social-icon {
+    transition: transform 0.3s ease-out;
+}
+
+.social-icons a:hover .social-icon {
+    transform: translateY(-5px) scale(1.1);
+}
+
+.thank-you-message {
+    display: none;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.thank-you-message.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Footer Styles */
+footer {
+    font-family: 'Dirtyline 36Daysoftype 2022', sans-serif;
+    text-align: right;
+    padding: 20px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    font-size: 14px;
+    color: #e0e0e0;
+    background-color: var(--black);
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+/* Media Queries */
